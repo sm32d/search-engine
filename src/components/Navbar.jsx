@@ -8,16 +8,16 @@ export const Navbar = ({ darkTheme, setDarkTheme }) => {
     <div className="p-5 pb-0 flex flex-wrap sm:justify-between justify-center items-center border-b dark:border-gray-700 border-gray-200">
       <div className="flex justify-between item-center space-x-5 w-screen">
         <Link to="/">
-          <p className="text-2xl font-medium bg-teal-500 text-white py-1 px-2 rounded dark:bg-gray-500 dark:text-gray-900">
+          <p className="text-2xl font-medium bg-teal-700 text-white py-1 px-2 rounded dark:bg-teal-800">
             See Search 🔍
           </p>
         </Link>
         <button
           type="button"
           onClick={() => setDarkTheme(!darkTheme)}
-          className="text-xl dark:bg:gray-50 dark:text-gray-900 bg-white border rounded-full px-2 py-1 hover:shadow-lg"
+          className="text-xl dark:bg-gray-50 dark:text-gray-900 bg-white border rounded-full px-2 py-1 hover:shadow-lg"
         >
-          {darkTheme ? "Light 💡" : "Dark 🌙"}
+          {darkTheme ? "💡" : "🌙"}
         </button>
       </div>
       <Search />

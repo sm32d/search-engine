@@ -19,7 +19,7 @@ export const Results = () => {
       if (location.pathname === "/videos") {
         getResults(`/search/q=${searchTerm} videos`);
       } else {
-        getResults(`${location.pathname}/q=${searchTerm}&num=40`);
+        getResults(`${location.pathname}/q=${searchTerm}&num=100`);
       }
     }
   }, [searchTerm, location.pathname]);
@@ -29,15 +29,18 @@ export const Results = () => {
   switch (location.pathname) {
     case "/search":
       return (
-        <div className="flex flex-wrap justify-between space-y-6 sm:px-56">
-          {results?.map(({ link, title }, i) => (
-            <div key={i} className="md:w-2/5 w-full">
+        <div className="flex flex-col justify-between space-y-6 sm:px-24 min-h-1/2">
+          {results?.map(({ link, title, description }, i) => (
+            <div key={i} className=" w-full">
               <a href={link} rel="noreferrer">
                 <p className="text-sm">
                   {link.length > 30 ? link.substring(0, 30) + "..." : link}
                 </p>
                 <p className="text-lg hover:underline dark:text-blue-300 text-blue-700">
                   {title}
+                </p>
+                <p className="text-sm text-gray-500 dark:text-gray-400">
+                  {description}
                 </p>
               </a>
             </div>
@@ -51,7 +54,7 @@ export const Results = () => {
         <div className="flex flex-wrap justify-center items-center">
           {image_results?.map(({ image, link: { href, title } }, i) => (
             <a className="sm:p-3 p-5" href={href} key={i} rel="noreferrer">
-              <img src={image?.src} alt={title} loading="lazy" />
+              <img src={image?.src} alt={title} loading="lazy" width={300} />
               <p className="w-36 break-words text-sm mt-2">{title}</p>
             </a>
           ))}
@@ -61,9 +64,9 @@ export const Results = () => {
 
     case "/news":
       return (
-        <div className="flex flex-wrap justify-between space-y-6 sm:px-56 items-center">
+        <div className="flex flex-col justify-between space-y-6 sm:px-24 items-center">
           {news?.map(({ link, id, source, title }) => (
-            <div key={id} className="md:w-2/5 w-full">
+            <div key={id} className="w-full">
               <a href={link} rel="noreferrer" className="hover:underline">
                 <p className="text-lg dark:text-blue-300 text-blue-700">
                   {title}
