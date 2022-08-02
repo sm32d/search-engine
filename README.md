@@ -1,5 +1,7 @@
 # See Search
 
+![Screenshot of See Search](ss.png)
+
 A react app using Google Search API to get all the search results.
 
 ## Available Scripts
